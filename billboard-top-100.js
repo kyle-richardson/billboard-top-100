@@ -94,18 +94,8 @@ function getCoverFromChartItem(chartItem, $) {
     }
   } catch (err1) {
     try {
-      image = $('.c-lazy-image', chartItem);
-      // console.log('image first: ', image)
-      
-      if (image) {
-        image = image.css('background-image')
-          .replace('url(', '');
-          // console.log('image now: ', image)
-        image = image.substr(0, image.length - 2);
-      } else {
-        image = $('.chart-list-item__image', chartItem)[0].attribs;
-        image = image['data-src'] || image.src;
-      }
+      image = $('.c-lazy-image__img', chartItem)[0].attribs;
+      image = image['data-lazy-src'] 
     } catch (err2) {
       image = BILLBOARD_BB_PLACEHOLDER;
     }
